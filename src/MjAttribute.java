@@ -4,6 +4,7 @@ public class MjAttribute {
 	private String name;
 	private String init;
 	private MjType mjType;
+	private String paquet;
 	
 	private String min;
 	private String max;
@@ -72,12 +73,18 @@ public class MjAttribute {
 		if(!this.getMin().equals("") && !this.getMax().equals("")){
 			
 			str.append("\n\tpublic void add(" + this.mjType.getListType() + " o) {");
-			//TODO vérifier les bornes min et max
-			str.append("\n\t\tthis." + this.name + ".add(o)" + ";");
+			str.append("\n\t\tint max = " + this.max + ";");
+			str.append("\n\t\tif(this."+this.name+".size() < max){");
+			str.append("\n\t\t\tthis." + this.name + ".add(o)" + ";");
+			str.append("\n\t\t}");
+			
 			str.append("\n\t}");
 			
 			str.append("\n\tpublic void remove(" + this.mjType.getListType() + " o) {");
-			
+			str.append("\n\t\tint min = " + this.min + ";");
+			str.append("\n\t\tif(this."+this.name+".size() >= min){");
+			str.append("\n\t\t\tthis." + this.name + ".remove(o)" + ";");
+			str.append("\n\t\t}");
 			str.append("\n\t}");
 			
 		}
@@ -123,6 +130,16 @@ public class MjAttribute {
 	public void setInit(String init) {
 		this.init = init;
 	}
+
+	public String getPaquet() {
+		return paquet;
+	}
+
+	public void setPaquet(String paquet) {
+		this.paquet = paquet;
+	}
+	
+	
 
 	
 	

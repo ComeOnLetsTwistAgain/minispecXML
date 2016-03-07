@@ -49,7 +49,7 @@ public class Main {
 		    		MjEntity mjEntity = new MjEntity(elementEntity.getAttribute("name"));
 		    				 mjEntity.setExtendsName(elementEntity.getAttribute("extends"));
 		    				 mjEntity.setPaquet(mjPackage.getName());
-		    				 
+		    				 Util.addImport(mjEntity.getName(), mjPackage.getName());
 		    				 
 		    				
 		    		
@@ -91,9 +91,14 @@ public class Main {
 						mjAttribute.setMax(elementAttribut.getAttribute("max"));
 						mjAttribute.setMin(elementAttribut.getAttribute("min"));
 						mjAttribute.setInit(elementAttribut.getAttribute("init"));
+						mjAttribute.setPaquet(mjEntity.getPaquet());
 						
-						//on ajoute les imports
-						mjEntity.addImport(getImportForEntity(typedefs, elementAttribut.getAttribute("typeid")));
+						
+						//on ajoute les imports primitif
+						if(!getImportForEntity(typedefs, elementAttribut.getAttribute("typeid")).equals(""))
+							Util.addImport(mjAttribute.getName(), getImportForEntity(typedefs, elementAttribut.getAttribute("typeid")));
+						
+						
 						
 						mjEntity.addAttribute(mjAttribute);
 					}
@@ -106,6 +111,9 @@ public class Main {
 		    	
 		    	// Création du fichier java
 		    	v.visitPackage(mjPackage);
+		    	
+		    	//sérialisation en XML
+		    	new xmlGenerator(mjPackage);
 	    	
 	    	}
     	

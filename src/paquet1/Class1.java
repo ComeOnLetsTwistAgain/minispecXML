@@ -1,7 +1,6 @@
 package paquet1;
 
-import java.util.ArrayList;
-
+import java.util.*;
 
 
 public class Class1 {
@@ -11,17 +10,28 @@ public class Class1 {
 	private ArrayList<ArrayList<String>> listeDeListeDeString;
 	private ArrayList<String> listeDeString;
 
-	public Class1(){}
 	public Class1(String[] tab, ArrayList<ArrayList<String>> listeDeListeDeString, ArrayList<String> listeDeString) { 
 		this.tab = tab;
 		this.listeDeListeDeString = listeDeListeDeString;
 		this.listeDeString = listeDeString;
 	} 
 
+	
 
 
 
-
+	public void add(String o) {
+		int max = 4;
+		if(this.listeDeString.size() < max){
+			this.listeDeString.add(o);
+		}
+	}
+	public void remove(String o) {
+		int min = 2;
+		if(this.listeDeString.size() >= min){
+			this.listeDeString.remove(o);
+		}
+	}
 
 	public String getAtt1() { 
 		return this.att1; 

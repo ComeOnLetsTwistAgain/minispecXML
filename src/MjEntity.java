@@ -59,15 +59,15 @@ public class MjEntity {
 			strParamsName = paramsName.substring(start, end).toString();
 		}
 		
-		//on ajoute les imports dans la liste
-		for(MjAttribute a : listAttribute)
-			if(Util.isTypePrimitif(a.getMjType().getName()))
+		
+				
+				
 				
 				
 		
 		
 		//constructeur sans paramêtres
-		str.append("\n\tpublic " + this.name + "(){}");
+		//str.append("\n\tpublic " + this.name + "(){}");
 		
 		
 		//constructeur avec paramêtres
@@ -130,32 +130,14 @@ public class MjEntity {
 	public void setImports(ArrayList<String> imports) {
 		this.imports = imports;
 	}
+	
+	private void sysoImports(){
+		System.out.println("IMPORTS   ");
+		for(String s : this.imports)
+			System.out.println(s);
+	}
 
-	private boolean exists(String i){
-		for(String s : this.imports)
-			if(s.equals(i))
-				return true;
-		return false;
-	}
 	
-	public void addImport(String i){
-		if(!exists(i)){
-			this.imports.add(i);
-		}
-	}
-	
-	public String printImports(){
-		StringBuilder str = new StringBuilder();
-		for(String s : this.imports)
-			if(!s.equals(""))
-				str.append("import " + s + ";\n");
-		
-		return str.toString();
-	}
-	
-	
-	
-	
-	
+
 	
 }

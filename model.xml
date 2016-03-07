@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model>
 	<typedef name="ArrayList" id="3" typeid="4"></typedef>
-	<typedef name="ArrayList" id="4" typeid="String" package="java.util.ArrayList"></typedef>
+	<typedef name="ArrayList" id="4" typeid="String" package="java.util"></typedef>
 	<typedef name="array" id="5" typeid="String" length="2"></typedef>
 	
 	<package name="paquet1">
@@ -11,7 +11,7 @@
 			<attribute name="att2" typeid="int" init="3"></attribute>
 			<attribute name="tab" typeid="5"></attribute>
 			<attribute name="listeDeListeDeString" typeid="3"></attribute>
-			<attribute name="listeDeString" typeid="4"></attribute>
+			<attribute name="listeDeString" typeid="4" min="2" max="4"></attribute>
 			
 		</entity>
 		
