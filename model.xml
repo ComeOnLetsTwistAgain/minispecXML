@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<typedef name="ArrayList" id="3" typeid="4"></typedef>
+	<typedef name="ArrayList" id="4" typeid="String" package="java.util.ArrayList"></typedef>
+	<typedef name="array" id="5" typeid="String" length="2"></typedef>
+	
+	<package name="paquet1">
+		<entity name="Class1">
+			
+			<attribute name="att1" typeid="String" init="Attribut 1"></attribute>
+			<attribute name="att2" typeid="int" init="3"></attribute>
+			<attribute name="tab" typeid="5"></attribute>
+			<attribute name="listeDeListeDeString" typeid="3"></attribute>
+			<attribute name="listeDeString" typeid="4"></attribute>
+			
+		</entity>
+		
+		<entity name="Class2">
+			
+			<attribute name="theInt" typeid="Class1"></attribute>
+		</entity>
+		
+		<entity name="HeirOfClass1" extends="Class2">
+			<attribute name="theInt" typeid="Class1"></attribute>
+		</entity>
+	</package>
+	
+	<package name="paquet2">
+		<entity name="Class3">
+			<attribute name="class2" typeid="Class2"></attribute>
+		</entity>
+	</package>
+</model>
