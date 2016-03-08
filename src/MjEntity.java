@@ -130,12 +130,6 @@ public class MjEntity {
 	public void setImports(ArrayList<String> imports) {
 		this.imports = imports;
 	}
-	
-	private void sysoImports(){
-		System.out.println("IMPORTS   ");
-		for(String s : this.imports)
-			System.out.println(s);
-	}
 
 	
 

@@ -3,6 +3,7 @@
 	<typedef name="ArrayList" id="3" typeid="4"></typedef>
 	<typedef name="ArrayList" id="4" typeid="String" package="java.util"></typedef>
 	<typedef name="array" id="5" typeid="String" length="2"></typedef>
+	<typedef name="ArrayList" id="6" typeid="Satellite" package="java.util"></typedef>
 	
 	<package name="paquet1">
 		<entity name="Class1">
@@ -15,19 +16,19 @@
 			
 		</entity>
 		
-		<entity name="Class2">
+		<entity name="Satellite">
 			
-			<attribute name="theInt" typeid="Class1"></attribute>
+		</entity>
+		
+		<entity name="Flottes">
+			<attribute name="satellites" typeid="6" min="1" max="10"></attribute>
+			<attribute name="sat1" typeid="Satellite" in="satellites"></attribute>
+			<attribute name="sat2" typeid="Satellite" in="satellites"></attribute>
+			<attribute name="sat3" typeid="Satellite" in="satellites"></attribute>
 		</entity>
 		
 		<entity name="HeirOfClass1" extends="Class2">
 			<attribute name="theInt" typeid="Class1"></attribute>
-		</entity>
-	</package>
-	
-	<package name="paquet2">
-		<entity name="Class3">
-			<attribute name="class2" typeid="Class2"></attribute>
 		</entity>
 	</package>
 </model>

@@ -4,11 +4,11 @@ import java.util.*;
 
 
 public class Class1 {
-	private String att1 = "Attribut 1";
-	private int att2 = 3;
-	private String[] tab = new String[2];
-	private ArrayList<ArrayList<String>> listeDeListeDeString;
-	private ArrayList<String> listeDeString;
+	protected String att1 = "Attribut 1";
+	protected int att2 = 3;
+	protected String[] tab = new String[2];
+	protected ArrayList<ArrayList<String>> listeDeListeDeString;
+	protected ArrayList<String> listeDeString;
 
 	public Class1(String[] tab, ArrayList<ArrayList<String>> listeDeListeDeString, ArrayList<String> listeDeString) { 
 		this.tab = tab;
@@ -16,7 +16,7 @@ public class Class1 {
 		this.listeDeString = listeDeString;
 	} 
 
-	
+
 
 
 

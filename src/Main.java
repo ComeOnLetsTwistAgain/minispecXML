@@ -92,6 +92,7 @@ public class Main {
 						mjAttribute.setMin(elementAttribut.getAttribute("min"));
 						mjAttribute.setInit(elementAttribut.getAttribute("init"));
 						mjAttribute.setPaquet(mjEntity.getPaquet());
+						mjAttribute.setIn(elementAttribut.getAttribute("in"));
 						
 						
 						//on ajoute les imports primitif

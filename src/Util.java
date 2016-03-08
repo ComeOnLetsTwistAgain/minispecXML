@@ -28,8 +28,7 @@ public class Util {
 		 */
 		for(MjAttribute a : listAttr){
 			if(imports.containsKey(a.getMjType().getName())){ 
-				System.out.println("printing import for : "+ a.getName() + " : " +imports.get(a.getName().toLowerCase()));
-				str.append("import" + " " + imports.get(a.getMjType().getName()) +  ".*;");
+				str.append("import" + " " + imports.get(a.getMjType().getName()) +  ".*; \n");
 			} else if(imports.containsKey(a.getName())){
 				str.append("import" + " " + imports.get(a.getName()) +  ".*;");
 			}

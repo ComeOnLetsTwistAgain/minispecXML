@@ -5,6 +5,7 @@ public class MjAttribute {
 	private String init;
 	private MjType mjType;
 	private String paquet;
+	private String in;
 	
 	private String min;
 	private String max;
@@ -18,19 +19,22 @@ public class MjAttribute {
 		StringBuilder str = new StringBuilder();
 		//si la taille de l'array est défini
 		if(!this.mjType.getLength().isEmpty())
-			str.append("\tprivate " + this.getMjType().getName() + " " + this.name + " = new " + this.concatArrayLength(this.getMjType().getName(), this.getMjType().getLength()) +";");
-		else if(!this.getInit().isEmpty()){
+			str.append("\tprotected " + this.getMjType().getName() + " " + this.name + " = new " + this.concatArrayLength(this.getMjType().getName(), this.getMjType().getLength()) +";");
+		else if(!this.getInit().isEmpty() && !this.getInit().equals("object")){
 			switch (this.getMjType().getName()) {
 				case "String":
-					str.append("\tprivate " + this.getMjType().getName() + " " +this.name + " = \"" + this.init  + "\";");
+					str.append("\tprotected " + this.getMjType().getName() + " " +this.name + " = \"" + this.init  + "\";");
 					break;
 				case "int" :
-					str.append("\tprivate " + this.getMjType().getName() + " " +this.name+ " = " + this.init + ";");
+					str.append("\tprotected " + this.getMjType().getName() + " " +this.name+ " = " + this.init + ";");
 			}
 				
 		}
+		else if(this.getInit().equals("object")){
+			str.append("\tprotected " + this.getMjType().getName() + " " + this.name + " = new " + this.getMjType().getName() + "();");
+		}
 		else
-			str.append("\tprivate " + this.getMjType().getName() + " " + this.name + ";");
+			str.append("\tprotected " + this.getMjType().getName() + " " + this.name + ";");
 		return str.toString();
 	}
 	
@@ -137,6 +141,14 @@ public class MjAttribute {
 
 	public void setPaquet(String paquet) {
 		this.paquet = paquet;
+	}
+
+	public String getIn() {
+		return in;
+	}
+
+	public void setIn(String in) {
+		this.in = in;
 	}
 	
 	

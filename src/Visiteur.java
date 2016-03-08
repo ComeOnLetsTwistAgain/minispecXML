@@ -32,7 +32,7 @@ public class Visiteur {
 				writer.println("package " + p.getName() + ";");
 				writer.println();
 				writer.println(Util.printImports(e));
-				System.out.println(Util.imports.toString());
+				//System.out.println(Util.imports.toString());
 				//Util.printImports(e);
 				writer.println();
 				
