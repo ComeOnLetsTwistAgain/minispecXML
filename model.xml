@@ -16,16 +16,16 @@
 			
 		</entity>
 		
-		<entity name="Satellite">
-			
-		</entity>
-		
 		<entity name="Flottes">
 			<attribute name="satellites" typeid="6" min="1" max="10"></attribute>
-			<attribute name="sat1" typeid="Satellite" in="satellites"></attribute>
-			<attribute name="sat2" typeid="Satellite" in="satellites"></attribute>
-			<attribute name="sat3" typeid="Satellite" in="satellites"></attribute>
+			<attribute name="sat1" typeid="Satellite" in="satellites" init="object"></attribute>
+			<attribute name="sat2" typeid="Satellite" in="satellites" init="object"></attribute>
+			<attribute name="sat3" typeid="Satellite" in="satellites" init="object"></attribute>
 		</entity>
+		<entity name="Satellite">
+		</entity>
+		
+		
 		
 		<entity name="HeirOfClass1" extends="Class2">
 			<attribute name="theInt" typeid="Class1"></attribute>

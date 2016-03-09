@@ -10,6 +10,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import repo.Repository;
+
 
 public class Main {
 
@@ -113,8 +115,10 @@ public class Main {
 		    	// Création du fichier java
 		    	v.visitPackage(mjPackage);
 		    	
-		    	//sérialisation en XML
-		    	new xmlGenerator(mjPackage);
+		    	//sérialisation en XML / lot d'instances
+		    	Repository repo = new Repository();
+		    	
+		    	
 	    	
 	    	}
     	

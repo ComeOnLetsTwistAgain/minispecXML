@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><package name="paquet1"><Class1><att1 id="#1"/><att2 id="#2"/><tab id="#3"/><listeDeListeDeString id="#4"/><listeDeString id="#5"/></Class1><HeirOfClass1><theInt id="#1"/></HeirOfClass1></package>
