@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>	
 <model>
-	<entity name="Flottes">
-		<attribute name="satellites" typeid="6" min="1" max="10"></attribute>
-		<attribute name="sat1" typeid="Satellite" in="satellites"></attribute>
-		<attribute name="sat2" typeid="Satellite" in="satellites"></attribute>
-		<attribute name="sat3" typeid="Satellite" in="satellites"></attribute>
-	</entity>
-	<entity name="Satellite"></entity>
+	<entity name="Flottes" is="flotte1"></entity>
+	
+	<entity name="Satellite" in="flotte1"></entity>
+	<entity name="Satellite" in="flotte1"></entity>
+	<entity name="Satellite" in="flotte1"></entity>
+	
+	
 </model>

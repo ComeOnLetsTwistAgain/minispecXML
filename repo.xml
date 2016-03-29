@@ -1,1 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><package name="repo"><Repository><file id="#1"/></Repository></package>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<repo>
+	<Satellite id="#1"/>
+	<Satellite id="#2"/>
+	<Satellite id="#3"/>
+	<Flotte/>
+</repo>

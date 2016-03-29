@@ -1,19 +1,12 @@
 package paquet1;
 
-import java.util.*;import paquet1.*; 
-import paquet1.*; 
-import paquet1.*; 
-
+import java.util.*;
 
 
 public class Flottes {
-	protected ArrayList<Satellite> satellites;
-	protected Satellite sat1 = new Satellite();
-	protected Satellite sat2 = new Satellite();
-	protected Satellite sat3 = new Satellite();
+	protected ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 
-	public Flottes(ArrayList<Satellite> satellites) { 
-		this.satellites = satellites;
+	public Flottes() { 
 	} 
 
 	public void add(Satellite o) {
@@ -29,42 +22,12 @@ public class Flottes {
 		}
 	}
 
-
-
-
 	public ArrayList<Satellite> getSatellites() { 
 		return this.satellites; 
 	}
 
 	public void setSatellites(ArrayList<Satellite> satellites) { 
 		this.satellites = satellites; 
-	} 
-
-
-	public Satellite getSat1() { 
-		return this.sat1; 
-	}
-
-	public void setSat1(Satellite sat1) { 
-		this.sat1 = sat1; 
-	} 
-
-
-	public Satellite getSat2() { 
-		return this.sat2; 
-	}
-
-	public void setSat2(Satellite sat2) { 
-		this.sat2 = sat2; 
-	} 
-
-
-	public Satellite getSat3() { 
-		return this.sat3; 
-	}
-
-	public void setSat3(Satellite sat3) { 
-		this.sat3 = sat3; 
 	} 
 
 }

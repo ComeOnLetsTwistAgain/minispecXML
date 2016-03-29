@@ -7,6 +7,10 @@ import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -63,48 +67,73 @@ public class Repository {
 	    	for(int i = 0; i<entityList.getLength(); i++)
 	    	{
 	    		Element entity = (Element) entityList.item(i);
-	    		NodeList attributeList = entity.getElementsByTagName("attribute");
 	    		
 	    		int idSatellite = 1;
 	    		int idFlottes = 1;
-	    		for(int j = 0; j<attributeList.getLength();j++)
-	    		{
-	    			Element attribute = (Element) attributeList.item(j);
-	    			if(attribute.getAttribute("typeid").equals("Flottes"))
-	    			{
-	    				idFlottes++;
-	    			}
-	    			
-	    			if(attribute.getAttribute("typeid").equals("Satellite"))
-	    			{
-	    				
-	    				this.satellites.put("#"+idSatellite, new Satellite());
-	    				idSatellite++;
-	    				
-	    			}
-	    			
-	    			//si la map des satellites a une taille positive, on instancie une flottes avec ces satellites
-	        		if(this.satellites.size() > 0){
-	        			
-	        			System.out.println("new flotte");
-	        			ArrayList<Satellite> satList = new ArrayList<Satellite>();
-	        			
-	        			Flottes flotte = new Flottes(satList);
-	        			
-	        			
-	        		}
-	    			
-	    			
-	    		}
+	    		
+    			if(entity.getAttribute("name").equals("Flottes"))
+    			{
+    				
+    				this.flottes.put(entity.getAttribute("is"), new Flottes());
+    				idFlottes++;
+    				
+    			}
+    			
+    			if(entity.getAttribute("name").equals("Satellite"))
+    			{
+    				
+    				this.flottes.get(entity.getAttribute("in")).add(new Satellite());
+    				idSatellite++;
+    				
+    			}
 	    	}
 	    	
-	    	
-	    	
 	    	System.out.println(this.satellites.toString());
+	    	System.out.println(this.flottes.get("flotte1").getSatellites().toString());
+	    	
+	    	generateXML();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
     	
+	}
+	
+	private void generateXML(){
+		try{
+			int nbSatellites = 1;
+		
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		    Document doc = dBuilder.newDocument();
+			         
+			Element rootElement = doc.createElement("repo");
+			doc.appendChild(rootElement);
+			
+			for(Flottes f : this.flottes.values()){
+				for(Satellite s : f.getSatellites()){
+					Element satellite = doc.createElement("Satellite");
+					satellite.setAttribute("id", "#"+nbSatellites);
+					rootElement.appendChild(satellite);
+					
+					nbSatellites ++;
+				}
+				Element flotte = doc.createElement("Flotte");
+				
+				rootElement.appendChild(flotte);
+				
+			}
+			
+			
+			
+			// write the content into xml file
+	        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	        Transformer transformer = transformerFactory.newTransformer();
+	        DOMSource source = new DOMSource(doc);
+	        StreamResult result = new StreamResult("repo.xml");
+	        transformer.transform(source, result);
+		} catch (Exception e){
+			System.out.println(e);
+		}
 	}
 
 
