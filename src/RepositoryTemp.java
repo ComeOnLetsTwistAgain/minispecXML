@@ -23,5 +23,16 @@ private HashMap<String, Satellite> liste_Satellite = new HashMap<String, Satelli
 	}
 
 	public void generateXML(){
+		try{
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.newDocument();
+
+			Element rootElement = doc.createElement("repo");
+			doc.appendChild(rootElement);
+			
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 }

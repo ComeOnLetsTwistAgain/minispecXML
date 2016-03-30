@@ -72,7 +72,17 @@ public class RepositoryGenerator {
 		StringBuilder str = new StringBuilder();
 		
 		str.append("\n\tpublic void generateXML(){");
-		
+		str.append("\n\t\ttry{");
+		str.append("\n\t\t\tDocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();"
+				+ "\n\t\t\tDocumentBuilder dBuilder = dbFactory.newDocumentBuilder();"
+				+ "\n\t\t\tDocument doc = dBuilder.newDocument();"
+				+ "\n"
+				+ "\n\t\t\tElement rootElement = doc.createElement(\"repo\");"
+				+ "\n\t\t\tdoc.appendChild(rootElement);"
+				+ "\n");
+		str.append("\n\t\t} catch (Exception e){");
+		str.append("\n\t\t\te.printStackTrace();");
+		str.append("\n\t\t}");
 		str.append("\n\t}");
 		
 		return str.toString();
