@@ -1,0 +1,74 @@
+READ ME : Projet Génération de codes
+Author(s) : Antoine SOUESME & Sylvain BLANCHARD	
+
+Lancement du programme : 
+	- lancer la classe Main.java
+
+
+Main : 
+	- La classe Main.java permet de : 
+		lancer la génération des entités présentes dans le fichier model.xml
+		lancer la génération de classe Repository.java
+
+
+Fichier modèle : 
+	
+	- model.xml : contient le fichier d'entré pour l'association, l'héritage et le modèle de résolution.
+	- paquet1.xml : contient le fichier plat d'entré pour le lot d'instances
+	- repoModel.xml : contient le fichier pour la génération du fichier Repository.java
+
+Contenu du projet : 
+	
+	- Main.java : classe principale du projet
+	- MjPackage.java : classe correspondant a un package java
+	- MjEntity.java : classe correspondant a une classe
+	- MjAttribute.java : classe correspond a un attribut d'une classe
+	- MjReference.java : classe correspondant a un type non primitif (exemple : un type d'une classe).
+	- MjType.java : classe correspondant a la déclaration d'un type
+	- RepositoryGenerator.java : classe servant à la génération d'un fichier repository en fonction d'un fichier model.
+	- RepositoryTemp.java : resultat de la génération du repository
+	- Util.java : classe contenant les outils pour récuperer l'ensemble des fonctions utiles à la génération de code.
+	- Visiteur.java : classe pour la visite des différents objets du fichier xml à parser
+	- xmlGenerator.java : classe pour générer un fichier xml
+	
+Choix de conception :
+
+	Association : 
+		Les associations sont gérées de la manières suivantes : 
+			Le mot clé "typedef" défini un nouveau type, il est composé de plusieurs elements : 
+			un "id" unique, un "name", un "typeid" qui contient soit l'id d'un type défini auparavant soit un type primitif java. Il peut également posséder un element "length" s'il s'agit d'une liste bornée. Un element "package" 
+
+	Heritage :
+		L'héritage se fait en fonction dans la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigner alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans laquelle se trouve la classe étendue est également gérée.
+
+
+	Valeur initiale :
+
+
+
+	Lot d'instances :
+		
+
+
+Code commentés : 
+	- environ 20% à faire.
+
+Avancement :
+	
+	- liste d'Ã©lement primitif de base string,int ...
+	- liste d'elmenent de type de donnÃ©es autres
+ 	- liste d'entitÃ© (relation )
+ 	- liste d'objet avec cardinalité fixe
+ 	- liste d'objet avec cardinalité min et max
+
+
+Reste à faire :
+
+	- Terminer la génération du repository
+	- Rendre le code OCP
+	- Rendre le code générique par extension
+	-
+	-
+	-
+	-
+
