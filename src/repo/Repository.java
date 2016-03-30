@@ -33,11 +33,6 @@ public class Repository {
 	
 	File xml = new File("repoModel.xml");
 	
-	//write
-	PrintWriter writer;
-	
-	String nameOfFile = "src/repo/objects.xml";
-	
 
 	public Repository() { 
 		try {
@@ -46,8 +41,6 @@ public class Repository {
 			factory = DocumentBuilderFactory.newInstance();
 			builder = factory.newDocumentBuilder();
 			
-			//write
-			writer = new PrintWriter(nameOfFile, "UTF-8");
 			
 			parseXML();
 		} catch (Exception e) {
@@ -110,15 +103,21 @@ public class Repository {
 			doc.appendChild(rootElement);
 			
 			for(Flottes f : this.flottes.values()){
+				
+				Element flotte = doc.createElement("Flotte");
+				StringBuilder str = new StringBuilder("("); 
+				
 				for(Satellite s : f.getSatellites()){
 					Element satellite = doc.createElement("Satellite");
 					satellite.setAttribute("id", "#"+nbSatellites);
 					rootElement.appendChild(satellite);
 					
+					str.append("#" + nbSatellites + " ");
+					
 					nbSatellites ++;
 				}
-				Element flotte = doc.createElement("Flotte");
-				
+				str.append(")");
+				flotte.setAttribute("satellites", str.toString());
 				rootElement.appendChild(flotte);
 				
 			}

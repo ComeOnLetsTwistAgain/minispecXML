@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>	
 <model>
-	<entity name="Flottes" is="flotte1"></entity>
+	<entity name="Flottes" is="flotte1" in=""></entity>
 	
-	<entity name="Satellite" in="flotte1"></entity>
-	<entity name="Satellite" in="flotte1"></entity>
-	<entity name="Satellite" in="flotte1"></entity>
+	<entity name="Satellite" is="" in="flotte1"></entity>
+	<entity name="Satellite" is="" in="flotte1"></entity>
+	<entity name="Satellite" is="" in="flotte1"></entity>
 	
 	
 </model>

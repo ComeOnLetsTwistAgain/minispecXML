@@ -117,7 +117,7 @@ public class Main {
 		    	
 		    	//sérialisation en XML / lot d'instances
 		    	Repository repo = new Repository();
-		    	
+		    	RepositoryGenerator repogen = new RepositoryGenerator(new File("repoModel.xml"));
 		    	
 	    	
 	    	}
