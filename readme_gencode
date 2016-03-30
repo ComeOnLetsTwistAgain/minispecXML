@@ -2,7 +2,7 @@ READ ME : Projet Génération de codes
 Author(s) : Antoine SOUESME & Sylvain BLANCHARD	
 
 Lancement du programme : 
-	- lancer la classe Main.java
+	- Run la classe Main.java
 
 
 Main : 
@@ -36,17 +36,19 @@ Choix de conception :
 	Association : 
 		Les associations sont gérées de la manières suivantes : 
 			Le mot clé "typedef" défini un nouveau type, il est composé de plusieurs elements : 
-			un "id" unique, un "name", un "typeid" qui contient soit l'id d'un type défini auparavant soit un type primitif java. Il peut également posséder un element "length" s'il s'agit d'une liste bornée. Un element "package" 
+			un "id" unique, un "name", un "typeid" qui contient soit l'id d'un type défini auparavant soit un type primitif java. Il peut également posséder un element "length" s'il s'agit d'une liste bornée. Un element "package" est ajouter pour importer le package défini.
 
 	Heritage :
 		L'héritage se fait en fonction dans la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigner alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans laquelle se trouve la classe étendue est également gérée.
 
 
 	Valeur initiale :
-
+		initialiser 
 
 
 	Lot d'instances :
+		"is" => classe fille
+		"in" => classe mère 
 		
 
 
@@ -55,20 +57,31 @@ Code commentés :
 
 Avancement :
 	
-	- liste d'Ã©lement primitif de base string,int ...
-	- liste d'elmenent de type de donnÃ©es autres
- 	- liste d'entitÃ© (relation )
+	- liste d'élement primitif de base string,int ...
+	- liste d'elmenent de type de données autres
+ 	- liste d'entité (relation )
  	- liste d'objet avec cardinalité fixe
  	- liste d'objet avec cardinalité min et max
 
 
 Reste à faire :
 
+	- Gérer l'initialisation des valeurs
 	- Terminer la génération du repository
 	- Rendre le code OCP
 	- Rendre le code générique par extension
-	-
-	-
-	-
-	-
 
+
+
+POINT A TRAITER DANS LE READ ME :
+
+- version minimale : entité / attribut
+- association simple / multiple 
+- tableau a taille fixe (min / max)
+	génération add / remove
+- héritage (vérification des cycles)
+- verification que des attributs ne soit pas définie plusioeurs fois
+- initialisation
+- appel de constructeur
+- lot d'instance : avoir le repo, serialisation + materialisation + génération du repo
+- re-bouclage
