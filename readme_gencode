@@ -70,7 +70,7 @@ Choix de conception / etat d'avancement :
 	Lot d'instance : (avoir le repo, serialisation + materialisation + génération du repo)
 		"is" => classe fille
 		"in" => classe mère 
-		Il y a une classe qui génère un repository et une classe qui génère un xml.
+		La classe RepositoryGenerator génère le repository. Cette classe Repository permet de générer un XML conforme aux lot d’instance décrit dans le fichier repoModel.xml. 
 
 
 
