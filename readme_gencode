@@ -31,7 +31,7 @@ Contenu du projet :
 	- Visiteur.java : classe pour la visite des différents objets du fichier xml à parser
 	- xmlGenerator.java : classe pour générer un fichier xml
 	
-Choix de conception :
+Choix de conception / etat d'avancement :
 
 	Association : 
 		Les associations sont gérées de la manières suivantes : 
