@@ -3,15 +3,15 @@ public class MjType {
 	private String name;
 	private String length; //taille de l'array (optionnel)
 	private String listType;
-	
+
 	public MjType(){
-		
+
 	}
-	
+
 	public MjType(String name){
 		this.name = name;
 	}
-	
+
 	public MjType(String name, String length){
 		this.name = name;
 		this.length = length;
@@ -40,9 +40,6 @@ public class MjType {
 	public void setListType(String listType) {
 		this.listType = listType;
 	}
-	
-	
-	
-	
+
 
 }

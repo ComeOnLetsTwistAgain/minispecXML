@@ -1,8 +1,8 @@
 
 public class MjReference extends MjType{
-	
+
 	private MjEntity mjEntity;
-	
+
 	public MjReference(MjEntity mjEntity){
 		super();
 		this.mjEntity = mjEntity;
@@ -15,7 +15,5 @@ public class MjReference extends MjType{
 	public void setMjEntity(MjEntity mjEntity) {
 		this.mjEntity = mjEntity;
 	}
-	
-	
 
 }
