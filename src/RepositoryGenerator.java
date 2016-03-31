@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -10,8 +8,16 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-
+/*
+ * Cette classe prend un parametre un model de repository (xml) et génere le fichier java correspondant.
+ * 
+ * Le fichier repository generé permet de génerer un xml conforme
+ */
 public class RepositoryGenerator {
+	/*
+	 * Le fichier xml
+	 * Les factory pour parser le DOM
+	 */
 	private File xml;
 	DocumentBuilderFactory factory;
 	DocumentBuilder builder;
@@ -37,20 +43,26 @@ public class RepositoryGenerator {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/*
+	 * Fonction principale de génération du repository
+	 * 
+	 * Cette fonction appelle toutes les autres.
+	 * 
+	 * Génere un .xml
+	 */
 	private void generateRepo(){
 		try{
-
-
 			PrintWriter writer;
 
-			String nameOfFile = "src/RepositoryTemp.java";
+			String nameOfFile = "src/repo/RepositoryTemp.java";
 			writer = new PrintWriter(nameOfFile, "UTF-8");
 			System.out.println("génération de ... " + nameOfFile);
 
 			writer.println(this.genImports());
 
-			writer.println("public class RepositoryTemp {");
+			writer.println(""
+					+ "\npublic class RepositoryTemp {");
 			writer.println(this.genMaps());
 
 			writer.println(this.genConstructor());
@@ -66,12 +78,13 @@ public class RepositoryGenerator {
 	}
 	
 	/*
-	 * Génere le XML
+	 * Génere la fonction qui génere le xml
 	 */
 	private String genXML(){
 		StringBuilder str = new StringBuilder();
 		
-		str.append("\n\tpublic void generateXML(){");
+		str.append(""
+				+ "\n\tpublic void generateXML(){");
 		str.append("\n\t\ttry{");
 		str.append("\n\t\t\tDocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();"
 				+ "\n\t\t\tDocumentBuilder dBuilder = dbFactory.newDocumentBuilder();"
@@ -89,7 +102,7 @@ public class RepositoryGenerator {
 	}
 
 	/*
-	 * Génere les hashmaps
+	 * Génere la fonction qui genere les hashmap ou sont enregistrés les lots d'instances
 	 */
 	private String genMaps(){
 		StringBuilder str = new StringBuilder();
@@ -137,7 +150,9 @@ public class RepositoryGenerator {
 	 */
 	private String genImports(){
 		StringBuilder str = new StringBuilder();
-		str.append("import java.io.*;"
+		str.append("package repo;"
+				+ ""
+				+ "\nimport java.io.*;"
 				+ "\nimport java.util.*;"
 				+ "\nimport javax.xml.parsers.*;"
 				+ "\nimport org.w3c.dom.*;"
@@ -145,12 +160,13 @@ public class RepositoryGenerator {
 				+ "\n");
 		return str.toString();
 	}
-
+	
+	/*
+	 * Permet de récuperer les entity du DOM
+	 */
 	private ArrayList<String> getEntities(){
 		ArrayList<String> res = new ArrayList<String>();
 		try{
-
-
 			NodeList entityList = racine.getElementsByTagName("entity");
 
 			for(int i = 0; i<entityList.getLength(); i++)
@@ -161,15 +177,15 @@ public class RepositoryGenerator {
 					res.add(entity.getAttribute("name"));
 				}
 			}
-
-
-
 		} catch (Exception e){
 			e.printStackTrace();
 		}
 		return res;
 	}
-
+	
+	/*
+	 * Permet de recuperer le nombre d'entity qui possedent le nom passé en parametre
+	 */
 	private int getNbEntitiesByName(String name){
 		int res = 0;
 		NodeList entityList = racine.getElementsByTagName("entity");
@@ -183,7 +199,10 @@ public class RepositoryGenerator {
 		}
 		return res;
 	}
-
+	
+	/*
+	 * Permet de recuperer les attributs is & in en fonction du type passé en parametre
+	 */
 	private String getEntityIsInByEntityType(String type, String isin){
 		String res = "";
 		NodeList entityList = racine.getElementsByTagName("entity");
