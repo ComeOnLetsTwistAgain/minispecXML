@@ -1,8 +1,10 @@
+package repo;
 import java.io.*;
 import java.util.*;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import paquet1.*;
+
 
 public class RepositoryTemp {
 
@@ -30,7 +32,7 @@ private HashMap<String, Satellite> liste_Satellite = new HashMap<String, Satelli
 
 			Element rootElement = doc.createElement("repo");
 			doc.appendChild(rootElement);
-			
+
 		} catch (Exception e){
 			e.printStackTrace();
 		}
