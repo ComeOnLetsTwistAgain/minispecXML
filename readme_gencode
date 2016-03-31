@@ -33,55 +33,52 @@ Contenu du projet :
 	
 Choix de conception / etat d'avancement :
 
+
+	Version minimale :
+		Détection des entité et des attributs dans une classe fonctionnelles. Detection des objets lors du parsage du fichier xml d'entrée
+
 	Association : 
 		Les associations sont gérées de la manières suivantes : 
 			Le mot clé "typedef" défini un nouveau type, il est composé de plusieurs elements : 
 			un "id" unique, un "name", un "typeid" qui contient soit l'id d'un type défini auparavant soit un type primitif java. Il peut également posséder un element "length" s'il s'agit d'une liste bornée. Un element "package" est ajouter pour importer le package défini.
 
+		Les listes d'objets avec cardinalités sont gérées de la manière suivante :
+			avec une cardinalité fixe : un tableau est créé avec la taille de la cardinalité
+			avec des cardinalités minimale et maximale : des fonctions add et remove permettant de conserver le nombre défini d'element dans la tableau.
+
+		Globalement, sont gérées : 
+			- liste d'élement primitif de base string,int ...
+			- liste d'elmenent de type de données autres
+		 	- liste d'entité (relation )
+		 	- liste d'objet avec cardinalité fixe
+		 	- liste d'objet avec cardinalité min et max
+
+		L'ajout des attributs se faisant dans une hashmap défini avec des clé/valeurs, la clé représentant le nom de la variable, l'unicité des déclaration de variable est donc géré de cette manière.
+
+
 	Heritage :
 		L'héritage se fait en fonction dans la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigner alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans laquelle se trouve la classe étendue est également gérée.
+		L'héritage circulaire est géré.
 
 
 	Valeur initiale :
-		initialiser 
+		Les valeurs sont initialisées de la manière suivante :
+		- S'il s'agit d'un type primitif (que l'element parsé contient une valeur "init"), la variable est initialisée à la valeur "init"
+		- S'il s'agit d'un type object, l'object est instancié à l'aide d'un constructeur.
 
 
-	Lot d'instances :
+	Lot d'instance : (avoir le repo, serialisation + materialisation + génération du repo)
 		"is" => classe fille
 		"in" => classe mère 
-		
+		Il y a une classe qui génère un repository et une classe qui génère un xml.
 
-
-Code commentés : 
-	- environ 20% à faire.
-
-Avancement :
-	
-	- liste d'élement primitif de base string,int ...
-	- liste d'elmenent de type de données autres
- 	- liste d'entité (relation )
- 	- liste d'objet avec cardinalité fixe
- 	- liste d'objet avec cardinalité min et max
 
 
 Reste à faire :
 
-	- Gérer l'initialisation des valeurs
+
 	- Terminer la génération du repository
-	- Rendre le code OCP
-	- Rendre le code générique par extension
+	- re-bouclage
 
 
 
-POINT A TRAITER DANS LE READ ME :
-
-- version minimale : entité / attribut
-- association simple / multiple 
-- tableau a taille fixe (min / max)
-	génération add / remove
-- héritage (vérification des cycles)
-- verification que des attributs ne soit pas définie plusioeurs fois
-- initialisation
-- appel de constructeur
-- lot d'instance : avoir le repo, serialisation + materialisation + génération du repo
-- re-bouclage
