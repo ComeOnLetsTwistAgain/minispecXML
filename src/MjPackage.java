@@ -2,16 +2,15 @@ import java.util.ArrayList;
 
 
 public class MjPackage {
-	
+
 	private String name;
 	private ArrayList<MjEntity> listEntity ;
-	
+
 	public MjPackage(String name){
 		this.name = name;
 		this.listEntity = new ArrayList<MjEntity> ();
-	}
-	
-	
+	}	
+
 	public String getName() {
 		return name;
 	}
@@ -27,13 +26,16 @@ public class MjPackage {
 	public void addEntity(MjEntity e){
 		this.listEntity.add(e);
 	}
-	
+
+	/*
+	 * Methode accept du visiteur pour la visite d'un MjPackage
+	 */
 	public void accept(Visiteur v){
 		v.visitPackage(this);
 	}
-	
-	
-	
-	
+
+
+
+
 
 }
