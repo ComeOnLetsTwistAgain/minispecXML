@@ -35,7 +35,7 @@ Choix de conception / état d'avancement :
 
 
 	Version minimale :
-		Détection des entités et des attributs dans une classe fonctionnelles. Détection des objets lors du parsage du fichier xml d'entré
+		Détection des entités et des attributs dans une classe fonctionnelle. Détection des objets lors du parsage du fichier xml d'entré.
 
 	Association : 
 		Les associations sont gérées de la manière suivante : 
@@ -57,8 +57,8 @@ Choix de conception / état d'avancement :
 
 
 	Heritage :
-		L'héritage se fait en fonction dans la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigné alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans lequel se trouve la classe étendue est également géré.
-		L'héritage circulaire est géré.
+		- L'héritage se fait en fonction de la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigné alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans lequel se trouve la classe étendue est également géré.
+		- L'héritage circulaire est géré.
 
 
 	Valeur initiale :
