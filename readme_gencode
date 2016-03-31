@@ -5,7 +5,7 @@ Lancement du programme :
 	- Run la classe Main.java
 
 
-Main : 
+Main :
 	- La classe Main.java permet de : 
 		lancer la génération des entités présentes dans le fichier model.xml
 		lancer la génération de classe Repository.java
@@ -20,56 +20,56 @@ Fichier modèle :
 Contenu du projet : 
 	
 	- Main.java : classe principale du projet
-	- MjPackage.java : classe correspondant a un package java
-	- MjEntity.java : classe correspondant a une classe
-	- MjAttribute.java : classe correspond a un attribut d'une classe
-	- MjReference.java : classe correspondant a un type non primitif (exemple : un type d'une classe).
-	- MjType.java : classe correspondant a la déclaration d'un type
+	- MjPackage.java : classe correspondante à un package java
+	- MjEntity.java : classe correspondante à une classe
+	- MjAttribute.java : classe correspondante à un attribut d'une classe
+	- MjReference.java : classe correspondante à un type non primitif (exemple : un type d'une classe).
+	- MjType.java : classe correspondante à la déclaration d'un type
 	- RepositoryGenerator.java : classe servant à la génération d'un fichier repository en fonction d'un fichier model.
-	- RepositoryTemp.java : resultat de la génération du repository
-	- Util.java : classe contenant les outils pour récuperer l'ensemble des fonctions utiles à la génération de code.
+	- RepositoryTemp.java : résultat de la génération du repository
+	- Util.java : classe contenant les outils pour récupérer l'ensemble des fonctions utiles à la génération de code.
 	- Visiteur.java : classe pour la visite des différents objets du fichier xml à parser
 	- xmlGenerator.java : classe pour générer un fichier xml
 	
-Choix de conception / etat d'avancement :
+Choix de conception / état d'avancement :
 
 
 	Version minimale :
-		Détection des entité et des attributs dans une classe fonctionnelles. Detection des objets lors du parsage du fichier xml d'entrée
+		Détection des entités et des attributs dans une classe fonctionnelles. Détection des objets lors du parsage du fichier xml d'entré
 
 	Association : 
-		Les associations sont gérées de la manières suivantes : 
-			Le mot clé "typedef" défini un nouveau type, il est composé de plusieurs elements : 
-			un "id" unique, un "name", un "typeid" qui contient soit l'id d'un type défini auparavant soit un type primitif java. Il peut également posséder un element "length" s'il s'agit d'une liste bornée. Un element "package" est ajouter pour importer le package défini.
+		Les associations sont gérées de la manière suivante : 
+			Le mot clé "typedef" défini un nouveau type, il est composé de plusieurs éléments : 
+			un "id" unique, un "name", un "typeid" qui contient soit l'id d'un type défini auparavant soit un type primitif java. Il peut également posséder un élément "length" s'il s'agit d'une liste bornée. Un élément "package" est ajouté pour importer le package défini.
 
 		Les listes d'objets avec cardinalités sont gérées de la manière suivante :
 			avec une cardinalité fixe : un tableau est créé avec la taille de la cardinalité
-			avec des cardinalités minimale et maximale : des fonctions add et remove permettant de conserver le nombre défini d'element dans la tableau.
+			avec des cardinalités minimale et maximale : des fonctions add et remove permettant de conserver le nombre défini d’élément dans la tableau.
 
 		Globalement, sont gérées : 
-			- liste d'élement primitif de base string,int ...
-			- liste d'elmenent de type de données autres
-		 	- liste d'entité (relation )
-		 	- liste d'objet avec cardinalité fixe
-		 	- liste d'objet avec cardinalité min et max
+			- liste d’éléments primitif de base string,int ...
+			- liste d’éléments de type de données autres
+		 	- liste d'entités (relation )
+		 	- liste d'objets avec cardinalité fixe
+		 	- liste d'objets avec cardinalité min et max
 
-		L'ajout des attributs se faisant dans une hashmap défini avec des clé/valeurs, la clé représentant le nom de la variable, l'unicité des déclaration de variable est donc géré de cette manière.
+		L'ajout des attributs se faisant dans une hashmap défini avec des clé/valeurs, la clé représentant le nom de la variable, l'unicité des déclarations de variables est donc gérée de cette manière.
 
 
 	Heritage :
-		L'héritage se fait en fonction dans la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigner alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans laquelle se trouve la classe étendue est également gérée.
+		L'héritage se fait en fonction dans la déclaration d'une nouvelle entité via le mot clé "extends". Si le mot clé est renseigné alors à la génération de l'entité on rajoute la classe qui est étendue. L'import du package dans lequel se trouve la classe étendue est également géré.
 		L'héritage circulaire est géré.
 
 
 	Valeur initiale :
 		Les valeurs sont initialisées de la manière suivante :
-		- S'il s'agit d'un type primitif (que l'element parsé contient une valeur "init"), la variable est initialisée à la valeur "init"
+		- S'il s'agit d'un type primitif (que l’élément parsé contient une valeur "init"), la variable est initialisée à la valeur "init"
 		- S'il s'agit d'un type object, l'object est instancié à l'aide d'un constructeur.
 
 
-	Lot d'instance : (avoir le repo, serialisation + materialisation + génération du repo)
-		"is" => classe fille
-		"in" => classe mère 
+	Lot d'instance : (avoir le repo, serialisation + matérialisation + génération du repo)
+		"is" => décrit un nom d’instance
+		"in" => décrit le nom de l’instance sur laquelle l’entité doit pointer.
 		La classe RepositoryGenerator génère le repository. Cette classe Repository permet de générer un XML conforme aux lot d’instance décrit dans le fichier repoModel.xml. 
 
 
